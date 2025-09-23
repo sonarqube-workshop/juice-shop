@@ -1,4 +1,4 @@
-Welcome to SonarQube workshop. In this eercise we will look at core SonarQube features.
+Welcome to SonarQube workshop. In this exercise we will look at core SonarQube features.
 
 <details>
   <summary>Task 0. Initial setup</summary>
