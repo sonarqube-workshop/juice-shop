@@ -3,7 +3,8 @@
         "eg2.vscode-npm-script",
         "angular.ng-template",
         "dbaeumer.vscode-eslint",
-        "stylelint.vscode-stylelint"
+        "stylelint.vscode-stylelint",
+        "SonarSource.sonarlint-vscode"
     ],
     "settings": {
         "eslint.workingDirectories": [
