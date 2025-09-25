@@ -28,11 +28,23 @@ To create a new project in SonarQube Cloud from your GitHub repository, follow t
   5. SonarQube will start the analysis of the project which will take a few minutes
   ![Initial analysis](workshop_images/initial_analysis.jpg)
   
-  6. When the initial analysis is completed, you should be able to see all issues found by SonarQube:
+  6. When the initial analysis is completed, you should be able to see all issues found by SonarQube (make sure to select `Main branch` on the left):
   ![Initial analysis result](workshop_images/initial_analysis_result.jpg)
   </details>
 
 <details>
   <summary>Task 2. Review the results</summary>
-  No dependency information... Why?
+  Go to `Issues` tab. Here you can see all the issues that were detected in your code. Feel free to filter by various parameters. 
+
+  Go to `Security Hotspots` tab. A security hotspot highlights a security-sensitive piece of code that the developer needs to review. SonarQube Cloud helps you find security hotspots in your code when running analyses. You can read more about Security Hotspots on https://docs.sonarsource.com/sonarqube-cloud/digging-deeper/security-hotspots
+  
+  Go to `Inventory` -> `Dependencies`. This is where Sonar reports on what [third party libraries](https://docs.sonarsource.com/sonarqube-cloud/advanced-security/viewing-dependencies) were imported into your application. But wait.... why there are 0 dependnencies? If you look at `package.json` file in your repositories - there are definitely a few packages that were declared! 
+
+  The reason for this is how the scanning is configured. With GitHub it is possible to have your code [scanned automatically](https://docs.sonarsource.com/sonarqube-cloud/advanced-setup/automatic-analysis). In order to scan for vulnerable packages we need to implement scanning in our pipelines.
+</details>
+
+<details>
+  <summary>Task 3. Setup Sonar scanning in GitHub Actions</summary>
+  Go to `Administration` -> `Analisys Method`. As you can see, the automated analysis is enabled by default. We will need to turn that off and set up the analysis with GitHub Actions.
+  
 </details>
