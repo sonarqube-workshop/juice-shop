@@ -45,6 +45,7 @@ To create a new project in SonarQube Cloud from your GitHub repository, follow t
 
 <details>
   <summary>Task 3. Setup Sonar scanning in GitHub Actions</summary>
+  
   Go to `Administration` -> `Analisys Method`. 
   
   ![Analysis Method](workshop_images/analysis_method.jpg)
