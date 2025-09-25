@@ -45,6 +45,43 @@ To create a new project in SonarQube Cloud from your GitHub repository, follow t
 
 <details>
   <summary>Task 3. Setup Sonar scanning in GitHub Actions</summary>
-  Go to `Administration` -> `Analisys Method`. As you can see, the automated analysis is enabled by default. We will need to turn that off and set up the analysis with GitHub Actions.
+  Go to `Administration` -> `Analisys Method`. 
+  ![Analysis Method](workshop_images/analysis_method.jpg)
+
+  As you can see, the automated analysis is enabled by default. We will need to turn that off and set up the analysis with GitHub Actions. Disable the automatic analysis and click on `With GitHub Actions`:
+  ![Setup analysis](workshop_images/setup_analysis.jpg)
+
+  Follow the steps to create the following in your test repository in GitHub:
+  - `SONAR_TOKEN` secret
+
+  ![Create new secret](workshop_images/new_repository_secret.jpg)
+
+  ![Create SONAR_TOKEN](workshop_images/sonar_token.jpg)
+
+  - a new workflow in `.github/workflows` directory. Click on `JS/TS & Web` to get the code for the workflow.
+
+  ![Workflow details](workshop_images/workflow_details.jpg)
+
+  ![Add new file](workshop_images/create_new_file.jpg)
+
+  ![Create the workflow](workshop_images/create_workflow.jpg)
+
+  ![Commit the workflow](workshop_images/commit_workflow.jpg)
+
+  - `sonar-project.properties` file in root directory
+
+  ![sonar-project.properties file](workshop_images/sonar_project_properties.jpg)
+
+  Creation of `sonar-project.properties` will trigger the workflow which you will be able to monitor in Actions tab:
+
+  ![Actions](workshop_images/actions.jpg)
+
+  ![Sonar workflow run](workshop_images/sonar_workflow_run.jpg)
+
+  Once the workflow has finished, you should be able to see the list of dependencies in `Inventory` -> `Dependencies` and list of vulnerable dependencies in `Dependency Risks` tab:
+
+  ![Dependencies](workshop_images/dependencies.jpg)
+
+  ![Dependency Risks](workshop_images/dependency_risks.jpg)
   
 </details>
