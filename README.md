@@ -34,11 +34,12 @@ To create a new project in SonarQube Cloud from your GitHub repository, follow t
 
 <details>
   <summary>Task 2. Review the results</summary>
-  Go to `Issues` tab. Here you can see all the issues that were detected in your code. Feel free to filter by various parameters. 
-
-  Go to `Security Hotspots` tab. A security hotspot highlights a security-sensitive piece of code that the developer needs to review. SonarQube Cloud helps you find security hotspots in your code when running analyses. You can read more about Security Hotspots on https://docs.sonarsource.com/sonarqube-cloud/digging-deeper/security-hotspots
   
-  Go to `Inventory` -> `Dependencies`. This is where Sonar reports on what [third party libraries](https://docs.sonarsource.com/sonarqube-cloud/advanced-security/viewing-dependencies) were imported into your application. But wait.... why there are 0 dependnencies? If you look at `package.json` file in your repositories - there are definitely a few packages that were declared! 
+  1. Go to `Issues` tab. Here you can see all the issues that were detected in your code. Feel free to filter by various parameters. 
+
+  2. Go to `Security Hotspots` tab. A security hotspot highlights a security-sensitive piece of code that the developer needs to review. SonarQube Cloud helps you find security hotspots in your code when running analyses. You can read more about Security Hotspots on https://docs.sonarsource.com/sonarqube-cloud/digging-deeper/security-hotspots
+  
+  3. Go to `Inventory` -> `Dependencies`. This is where Sonar reports on what [third party libraries](https://docs.sonarsource.com/sonarqube-cloud/advanced-security/viewing-dependencies) were imported into your application. But wait.... why there are 0 dependnencies? If you look at `package.json` file in your repositories - there are definitely a few packages that were declared! 
 
   The reason for this is how the scanning is configured. With GitHub it is possible to have your code [scanned automatically](https://docs.sonarsource.com/sonarqube-cloud/advanced-setup/automatic-analysis). In order to scan for vulnerable packages we need to implement scanning in our pipelines.
 </details>
@@ -46,7 +47,7 @@ To create a new project in SonarQube Cloud from your GitHub repository, follow t
 <details>
   <summary>Task 3. Setup Sonar scanning in GitHub Actions</summary>
   
-  Go to `Administration` -> `Analisys Method`. 
+  1. Go to `Administration` -> `Analisys Method`. 
   
   ![Analysis Method](workshop_images/analysis_method.jpg)
 
@@ -55,13 +56,14 @@ To create a new project in SonarQube Cloud from your GitHub repository, follow t
   ![Setup analysis](workshop_images/setup_analysis.jpg)
 
   Follow these steps to setup the scanning in GitHub Actions:
-  - create `SONAR_TOKEN` secret in your test repository in GitHub:
+  
+  2. Create `SONAR_TOKEN` secret in your test repository in GitHub:
 
   ![Create new secret](workshop_images/new_repository_secret.jpg)
 
   ![Create SONAR_TOKEN](workshop_images/sonar_token.jpg)
 
-  - create a new workflow in `.github/workflows` directory in your test repository in GitHub. Click on `JS/TS & Web` to get the code for the workflow:
+  3. Create a new workflow in `.github/workflows` directory in your test repository in GitHub. Click on `JS/TS & Web` to get the code for the workflow:
 
   ![Workflow details](workshop_images/workflow_details.jpg)
 
@@ -71,7 +73,7 @@ To create a new project in SonarQube Cloud from your GitHub repository, follow t
 
   ![Commit the workflow](workshop_images/commit_workflow.jpg)
 
-  - create `sonar-project.properties` file in root directory in your test repository in GitHub:
+  4. Create `sonar-project.properties` file in root directory in your test repository in GitHub:
 
   ![sonar-project.properties file](workshop_images/sonar_project_properties.jpg)
 
@@ -81,7 +83,7 @@ To create a new project in SonarQube Cloud from your GitHub repository, follow t
 
   ![Sonar workflow run](workshop_images/sonar_workflow_run.jpg)
 
-  Once the workflow has finished, you should be able to see the list of dependencies in `Inventory` -> `Dependencies` and list of vulnerable dependencies in `Dependency Risks` tab:
+  5. Once the workflow has finished, you should be able to see the list of dependencies in `Inventory` -> `Dependencies` and list of vulnerable dependencies in `Dependency Risks` tab:
 
   ![Dependencies](workshop_images/dependencies.jpg)
 
