@@ -46,19 +46,21 @@ To create a new project in SonarQube Cloud from your GitHub repository, follow t
 <details>
   <summary>Task 3. Setup Sonar scanning in GitHub Actions</summary>
   Go to `Administration` -> `Analisys Method`. 
+  
   ![Analysis Method](workshop_images/analysis_method.jpg)
 
   As you can see, the automated analysis is enabled by default. We will need to turn that off and set up the analysis with GitHub Actions. Disable the automatic analysis and click on `With GitHub Actions`:
+  
   ![Setup analysis](workshop_images/setup_analysis.jpg)
 
-  Follow the steps to create the following in your test repository in GitHub:
-  - `SONAR_TOKEN` secret
+  Follow these steps to setup the scanning in GitHub Actions:
+  - create `SONAR_TOKEN` secret in your test repository in GitHub:
 
   ![Create new secret](workshop_images/new_repository_secret.jpg)
 
   ![Create SONAR_TOKEN](workshop_images/sonar_token.jpg)
 
-  - a new workflow in `.github/workflows` directory. Click on `JS/TS & Web` to get the code for the workflow.
+  - create a new workflow in `.github/workflows` directory in your test repository in GitHub. Click on `JS/TS & Web` to get the code for the workflow:
 
   ![Workflow details](workshop_images/workflow_details.jpg)
 
@@ -68,7 +70,7 @@ To create a new project in SonarQube Cloud from your GitHub repository, follow t
 
   ![Commit the workflow](workshop_images/commit_workflow.jpg)
 
-  - `sonar-project.properties` file in root directory
+  - create `sonar-project.properties` file in root directory in your test repository in GitHub:
 
   ![sonar-project.properties file](workshop_images/sonar_project_properties.jpg)
 
