@@ -90,3 +90,11 @@ To create a new project in SonarQube Cloud from your GitHub repository, follow t
   ![Dependency Risks](workshop_images/dependency_risks.jpg)
   
 </details>
+
+<details>
+  <summary>Task 4. Introduce a vulnerable dependency</summary>
+  
+  1. Create a pul request to merge `sanitize-html` into main branch.
+  2. Let the scan to run and check whether it passes or fail
+  3. TO DO: a better explanation of this step with screenshot
+</details>
