@@ -94,9 +94,20 @@ To create a new project in SonarQube Cloud from your GitHub repository, follow t
 <details>
   <summary>Task 4. Introduce a vulnerable dependency</summary>
   
-  1. Open package.json file for editing.
-  2. Change line #175 from `"sanitize-html": "2.12.1"` to `"sanitize-html": "1.4.2"`
-  3. Create a pull request and wait until the scan is completed
-  4. Review the messages in the pull request and in SonarQube
-  5. TO DO: a better explanation of this step with screenshot
+  1. Open package.json file for editing and change line #175 from `"sanitize-html": "2.12.1"` to `"sanitize-html": "1.4.2"`
+  
+  ![packages.json file](workshop_images/packages_json.jpg)
+  ![Edit packages.json file](workshop_images/edit_packages_json.jpg)
+  
+  2. Commit the changes to a brand new branch and create a pull request
+  
+  ![Commit packages.json file](workshop_images/commit_packages_json.jpg)
+  ![New branch](workshop_images/new_branch_packages_json.jpg)
+  ![New pull request](workshop_images/new_pr_packages_json.jpg)
+  ![Create pull request](workshop_images/create_pr_packages_json.jpg)
+  
+  3. Wait until the scan is completed and review the messages in the pull request
+  
+  ![Quality gate fail](workshop_images/cg_fail_packages_json.jpg)
+
 </details>
