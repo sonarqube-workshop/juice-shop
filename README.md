@@ -1,18 +1,18 @@
 Welcome to SonarQube workshop. In this exercise we will look at core SonarQube features.
 
 <details>
-  <summary>Task 0. Initial setup</summary>
+  <summary>Task 1. Initial setup</summary>
 Use this repository template to create a new repository. If the Action gods were merciful today, the automation has already invited you to SonarQube Workshop organisation, created a repository from the template and used your GutHub username for repository name.
 
 If you haven't done so yet, please log into SonarQube Cloud from https://sonarcloud.io/login. Please make sure to use GitHub for authentication. 
 
 ![GitHub Login](workshop_images/github_login.jpg)
 
-While it's possible to log in with other DevOps platforms, we will be using GitHub in this exercise. Your SonarQube Cloud account will be created if this is the first time you are logging into the platform. Once your account is created, the admin will add you to the SonarQube Workshop organisation.
+While it's possible to log in with other DevOps platforms, we will be using GitHub in this exercise. Your SonarQube Cloud account will be created if this is the first time you are logging into the platform. Once your account is created, you automatically will be added to the SonarQube Workshop organisation.
 </details>
 
 <details>
-  <summary>Task 1. Create a SonarQube Cloud project from a GitHub Repository</summary>
+  <summary>Task 2. Create a SonarQube Cloud project from a GitHub Repository</summary>
 
 To create a new project in SonarQube Cloud from your GitHub repository, follow these steps:
   1. Log in to [SonarQube Cloud](https://sonarcloud.io/login) using your GitHub account.
@@ -33,7 +33,7 @@ To create a new project in SonarQube Cloud from your GitHub repository, follow t
   </details>
 
 <details>
-  <summary>Task 2. Review the results</summary>
+  <summary>Task 3. Review the results</summary>
   
   1. Go to `Issues` tab. Here you can see all the issues that were detected in your code. Feel free to filter by various parameters. 
 
@@ -45,7 +45,7 @@ To create a new project in SonarQube Cloud from your GitHub repository, follow t
 </details>
 
 <details>
-  <summary>Task 3. Setup Sonar scanning in GitHub Actions</summary>
+  <summary>Task 4. Setup Sonar scanning in GitHub Actions</summary>
   
   1. Go to `Administration` -> `Analisys Method`. 
   
@@ -92,7 +92,7 @@ To create a new project in SonarQube Cloud from your GitHub repository, follow t
 </details>
 
 <details>
-  <summary>Task 4. Introduce a vulnerable dependency</summary>
+  <summary>Task 5. Introduce a vulnerable dependency</summary>
   
   1. Open package.json file for editing and change line #175 from `"sanitize-html": "2.12.1"` to `"sanitize-html": "1.4.2"`
   
