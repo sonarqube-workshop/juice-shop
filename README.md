@@ -71,6 +71,10 @@ To create a new project in SonarQube Cloud from your GitHub repository, follow t
 
   ![Create the workflow](workshop_images/create_workflow.jpg)
 
+  Pro tips:
+  - change the default `build.yml` name to `sonar.yml`
+  - change the name of the workflow in the file (line #1) to `SonarQube Scan`
+
   ![Commit the workflow](workshop_images/commit_workflow.jpg)
 
   4. Create `sonar-project.properties` file in root directory in your test repository in GitHub:
@@ -92,21 +96,32 @@ To create a new project in SonarQube Cloud from your GitHub repository, follow t
 </details>
 
 <details>
-  <summary>Task 5. Introduce a vulnerable dependency</summary>
+  <summary>Task 5. Configure branch protection</summary>
+
+  SonarQube is a great tool to surface any issues with security or quality in your code. However, to utilise the full potential you should consider implement strict controls about what goes into your default branch and into production. One way to do it on GitHub is to configure rulesets to enforce SonarQube scanning in pull requests and block the merge if quality gate fails.
+
+  To configure the ruleset:
+  1. In GitHub, go to your repository settings, click on Rules -> Rulesets and create a new branch ruleset.
+  2. Give it a name and add `master` branch to target branches list.
+
+  ![Ruleset target branch](workshop_images/target_branch.jpg)
   
-  1. Open package.json file for editing and change line #175 from `"sanitize-html": "2.12.1"` to `"sanitize-html": "1.4.2"`
+  3. Select `Require a pull request before merging` and make sure there are no approvals required. Select `Require status checks to pass` and add `SonarCloud Code Analysis` and `SonarQube Scan` (or whatever was configured as a name in Sonar workflow
+
+  ![Ruleset settings](workshop_images/ruleset_settings.jpg)
   
-  ![packages.json file](workshop_images/packages_json.jpg)
-  ![Edit packages.json file](workshop_images/edit_packages_json.jpg)
+  4. Set `Enforcement status` to Active` and save the settings.
+
+  From now on, all chages to the `master` branch will require to have a pull request. Also, the quality gate should pass before the pull request can be merged.
   
-  2. Commit the changes to a brand new branch and create a pull request
+</details>
+
+<details>
+  <summary>Task 6. Introduce a vulnerable dependency</summary>
   
-  ![Commit packages.json file](workshop_images/commit_packages_json.jpg)
-  ![New branch](workshop_images/new_branch_packages_json.jpg)
-  ![New pull request](workshop_images/new_pr_packages_json.jpg)
-  ![Create pull request](workshop_images/create_pr_packages_json.jpg)
+  1. Create a pull request to merge `sanitize-html` branch into your master branch. This should trigger a GitHub Actions workflow with a Sonar scan.
   
-  3. Wait until the scan is completed and review the messages in the pull request
+  2. Wait until the scan is completed and review the messages in the pull request. Due to the failed quality gate, the `Merge` button is disabled.
   
   ![Quality gate fail](workshop_images/cg_fail_packages_json.jpg)
 
